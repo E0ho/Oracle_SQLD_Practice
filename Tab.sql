@@ -5,25 +5,25 @@ DROP TABLE USERTBL;
 -- USERTBL 테이블 만들기
 -- 회원 테이블
 CREATE TABLE USERTBL ( 
-    USERID CHAR(8) PRIMARY KEY,                          -- 사용자 아이디(PK)
+    USERID CHAR(8) PRIMARY KEY,                    -- 사용자 아이디(PK)
     USERNAME VARCHAR2(10) NOT NULL,                -- 이름
-    BIRTHYEAR NUMBER(10) NOT NULL,                   -- 출생년도
-    ADDR VARCHAR2(20) NOT NULL,                               -- 지역(경기,서울,경남 식으로 2글자만입력)
-    MOBILE1 VARCHAR2(5),                                           -- 휴대폰의 앞자리
-    MOBILE2 VARCHAR2(10),                                           -- 휴대폰의 나머지 전화번호(하이픈제외)
-    HEIGHT NUMBER(5),                                       -- 키
-    MDATE DATE  -- 회원 가입일
+    BIRTHYEAR NUMBER(10) NOT NULL,                 -- 출생년도
+    ADDR VARCHAR2(20) NOT NULL,                    -- 지역(경기,서울,경남 식으로 2글자만입력)
+    MOBILE1 VARCHAR2(5),                           -- 휴대폰의 앞자리
+    MOBILE2 VARCHAR2(10),                          -- 휴대폰의 나머지 전화번호(하이픈제외)
+    HEIGHT NUMBER(5),                              -- 키
+    MDATE DATE                                     -- 회원 가입일
 );
 -- BUYTBL 테이블 만들기
 -- 회원 구매 테이블
 CREATE TABLE BUYTBL (  
    ID NUMBER(10) PRIMARY KEY,
-   USERID CHAR(8) NOT NULL,                 -- 아이디(FK)
-   PRODNAME VARCHAR2(20) NOT NULL,           --  물품명
-   GROUPNAME VARCHAR2(20),                        -- 분류
-   PRICE NUMBER(10) NOT NULL,             -- 단가
-   AMOUNT NUMBER(5) NOT NULL,          -- 수량
-   FOREIGN KEY (USERID) REFERENCES USERTBL(USERID)   -- 외래키 설정
+   USERID CHAR(8) NOT NULL,                            -- 아이디(FK)
+   PRODNAME VARCHAR2(20) NOT NULL,                     --  물품명
+   GROUPNAME VARCHAR2(20),                             -- 분류
+   PRICE NUMBER(10) NOT NULL,                          -- 단가
+   AMOUNT NUMBER(5) NOT NULL,                          -- 수량
+   FOREIGN KEY (USERID) REFERENCES USERTBL(USERID)     -- 외래키 설정
 );
 
 -- 데이터 삽입(USERTBL)

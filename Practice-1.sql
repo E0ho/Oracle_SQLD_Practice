@@ -12,6 +12,7 @@ ALTER TABLE EMP MODIFY DEPT_CODE VARCHAR(5);
 -- 테이블 삭제(DDL구문)
 DROP TABLE EMP;
 
+
 -- 테이블 조회(DML구문)
 -- AS는 ALLIAS의 약자로 별칭을 사용하여 가독성을 좋게 만들어 준다.
 SELECT EMPNO AS "사원번호", EMP_NAME AS "이름", AGE AS "나이", SAL AS "연봉", DEPT_CODE AS "부서코드"
@@ -24,6 +25,8 @@ INSERT INTO EMP VALUES (1002, '안철수', 32, 32000, '003');
 -- 데이터 삭제하는데 조건(WHERE)이 EMPNO가 1000번에 대해서 삭제함.(DML구문)
 DELETE FROM EMP
 WHERE EMPNO = 1000;
+
+
 -- TCL의 한 명령어로 물리적인 저장장치(서버, HDD, SSD 등)에 보내기 전에 이전 상태로 돌리는 명령어.
 -- DML구문(INSERT, DELETE, UPDATE문)에 사용할 때 적용이 된다.
 ROLLBACK;

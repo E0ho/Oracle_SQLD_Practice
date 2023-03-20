@@ -49,6 +49,7 @@ SELECT * FROM DEPT_TEST;
 --     FROM DEPT
 --);
 
+
 -- NOLOGGING 옵션은 로그파일의 기록을 최소화하면서 입력 시 성능을 향상시키는 방법적인 옵션
 -- NOLOGGING 옵션은 BUFFER CACHE라는 메모리 영역을 생략하고 바로 기록을 한다.
 ALTER TABLE DEPT NOLOGGING;
@@ -77,11 +78,3 @@ WHERE EMPNO = 1001;
 -- TRUNCATE문 : 모든 데이터를 삭제한다. 테이블 구조는 남겨둔다. 
 -- TRUNCATE문은 DDL구문이라서 TCL(ROLLBACK)문이 적용되지 않는다.
 TRUNCATE TABLE EMP;
-
-
-
-
-
-
-
- 
