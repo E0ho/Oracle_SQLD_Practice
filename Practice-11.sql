@@ -2,8 +2,7 @@
 -- 쿼리문이기는 한데 통상 서브쿼리라고 말하는 것은 WHERE 구문에 (SELECT 문) 이 하나의 쿼리문이 더 존재하는 것을 의미한다.
 
 -- 키가 177초과인 사람의 이름의 키를 출력하는 쿼리이다.
--- 김용만이라는 사람이 키가 177이라는 것을 모른다면......우리는 어떻게 해야하나?
--- 이럴 때 적절히 서브쿼리를 이용해주면 된다.
+-- 이럴 때 서브쿼리를 이용해주면 된다.
 SELECT USERNAME, HEIGHT
  FROM USERTBL
 WHERE HEIGHT > 177;
@@ -93,14 +92,6 @@ SELECT ENAME AS "이름", SAL AS "급여",
           ( SELECT ROUND(AVG(SAL), 3) FROM EMP ) AS "평균급여"      -- 스칼라 서브쿼리
  FROM EMP
 WHERE EMPNO = 1000;
-
-
---다음의 SQL 실행 결과를 보고, SQL문(테이블명 : EMP)을 작성하시오.
--- (단, JOB은 'SALESMAN'을 조회한다).    
-SELECT LEVEL, EMPNO, ENAME, MGR 
- FROM EMP
-START WITH JOB = 'SALESMAN'
-CONNECT BY PRIOR EMPNO = MGR;
 
 
 
