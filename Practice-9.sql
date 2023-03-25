@@ -1,5 +1,5 @@
 -- EQUI(등가)조인 --> 교집합
--- 조인 : 2개 이상의 릴레이션(테이블)을 사용해서 새로운 릴레이션을 만드는 과정이다.
+-- 조인 : 2개 이상의 릴레이션(테이블)을 사용해서 새로운 릴레이션을 만드는 과정
 -- 두 릴레이션(기본키, 외래키) 일치하는 것을 조인의 조건으로 한다.
 SELECT *
  FROM USERTBL;
@@ -7,7 +7,7 @@ SELECT *
 SELECT *
  FROM BUYTBL;
 
--- 오라클에서의 등가 내부조인의 결과는 USERID같은 것만 추출하므로 12개행 밖에 출력된다. 
+-- 오라클에서의 등가 내부조인의 결과는 USERID같은 것만 추출
 SELECT *
  FROM USERTBL, BUYTBL
 WHERE USERTBL.USERID = BUYTBL.USERID; 
