@@ -1,5 +1,5 @@
 -- DCL(DATA CONTROL LANGUAGE)
--- GRANT : 데이터베이스 사용자에게 권한을 부여한다.
+-- GRANT : 데이터베이스 사용자에게 권한을 부여
 -- 데이터 사용하기 위해서는 권한이 필요하며 연결, 입력, 수정, 삭제, 조회를 할 수 있다.
 
 -- 계정 생성하기
@@ -54,44 +54,3 @@ UPDATE C##PERPEAR.EMP
 WHERE EMPNO = 1000;
 
 SHOW USER;
-
--- TCL(TRANSACTION CONTROL LANGUAE)
--- COMMIT, ROLLBACK, SAVEPOINT 존재한다.
-UPDATE C##PERPEAR.EMP
-      SET ENAME = '김말자'
-WHERE EMPNO = 1000;
-
-SELECT *
- FROM EMP;
-COMMIT;     -- 한번 커밋이 이루어지면 ROLLBACK이 되지 않는다.
-ROLLBACK;
-
-
-UPDATE C##PERPEAR.EMP
-      SET ENAME = '홍말자'
-WHERE EMPNO = 1000;
-SELECT *
- FROM EMP;
-
-ROLLBACK;   -- 커밋이 되지 않은 상태에서는 얼마든지 ROLLBACK이 가능하다.
-
--- SAVEPOINT : 트랜잭션을 작게 분할하여 관리하는 것, 지정된 위치에서만 롤백이 가능한다.
-
-UPDATE C##PERPEAR.EMP
-      SET ENAME = '김연아'
-WHERE EMPNO = 1000;
-
-SAVEPOINT KIM;
-
-UPDATE C##PERPEAR.EMP
-      SET ENAME = '손연재'
-WHERE EMPNO = 1001;
-
-SAVEPOINT SON;
-
-SELECT *
- FROM EMP;
--- 손연재는 롤백이 되어 지고 김연아는 롤백이 되어지지 않음을 알 수가 있다.
-ROLLBACK TO KIM;
--- 마지막 커밋까지 롤백을 다 해준다.
-ROLLBACK;
